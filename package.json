@@ -11,8 +11,8 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.2",
     "tailwindcss": "^4.3.2",
-    "typescript": "~6.0.2",
-    "vite": "^8.1.1"
+    "typescript": "~7.0.2",
+    "vite": "^8.1.4"
   },
   "dependencies": {
     "plotly.js-dist-min": "^3.7.0"
