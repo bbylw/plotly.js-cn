@@ -3,14 +3,14 @@ import Plotly from 'plotly.js-dist-min'
 /* ============================================
    Shared dark theme layout
    ============================================ */
-const COLORS = ['#3b82f6', '#06b6d4', '#8b5cf6', '#f472b6', '#22d3ee', '#34d399', '#fbbf24', '#f87171']
+const COLORS = ['#5eead4', '#38bdf8', '#8b5cf6', '#fb7185', '#86efac', '#86efac', '#fbbf24', '#fb7185']
 
 function baseLayout(overrides: Record<string, any> = {}) {
   return {
     paper_bgcolor: 'rgba(0,0,0,0)',
     plot_bgcolor: 'rgba(0,0,0,0)',
     font: {
-      color: '#8b92a5',
+      color: '#797d89',
       family: 'DM Sans, sans-serif',
       size: 12,
     },
@@ -67,12 +67,12 @@ export function renderHeroChart(el: HTMLElement) {
       type: 'surface',
       z: computeZ(0),
       colorscale: [
-        [0, '#0a0c12'],
-        [0.2, '#1e3a5f'],
-        [0.4, '#3b82f6'],
-        [0.6, '#06b6d4'],
-        [0.8, '#22d3ee'],
-        [1, '#f472b6'],
+        [0, '#0a0c10'],
+        [0.2, '#1a3340'],
+        [0.4, '#5eead4'],
+        [0.6, '#38bdf8'],
+        [0.8, '#86efac'],
+        [1, '#fb7185'],
       ],
       showscale: false,
       opacity: 0.9,
@@ -81,7 +81,7 @@ export function renderHeroChart(el: HTMLElement) {
         z: {
           show: true,
           usecolormap: true,
-          highlightcolor: '#22d3ee',
+          highlightcolor: '#86efac',
           project: { z: true },
         },
       },
@@ -132,23 +132,23 @@ export function renderSurface3D(el: HTMLElement) {
       type: 'surface',
       z,
       colorscale: [
-        [0, '#0f1219'],
-        [0.25, '#1e3a5f'],
-        [0.5, '#3b82f6'],
-        [0.75, '#22d3ee'],
-        [1, '#f472b6'],
+        [0, '#12151e'],
+        [0.25, '#1a3340'],
+        [0.5, '#5eead4'],
+        [0.75, '#86efac'],
+        [1, '#fb7185'],
       ],
       colorbar: {
         thickness: 10,
         len: 0.6,
-        tickfont: { color: '#5c6378', size: 10 },
+        tickfont: { color: '#4c515c', size: 10 },
         outlinewidth: 0,
       },
       contours: {
         z: {
           show: true,
           usecolormap: true,
-          highlightcolor: '#22d3ee',
+          highlightcolor: '#86efac',
           project: { z: true },
         },
       },
@@ -157,9 +157,9 @@ export function renderSurface3D(el: HTMLElement) {
 
   const layout = baseLayout({
     scene: {
-      xaxis: { gridcolor: '#232938', zerolinecolor: '#232938', title: { text: 'X', font: { size: 10 } } },
-      yaxis: { gridcolor: '#232938', zerolinecolor: '#232938', title: { text: 'Y', font: { size: 10 } } },
-      zaxis: { gridcolor: '#232938', zerolinecolor: '#232938', title: { text: 'Z', font: { size: 10 } } },
+      xaxis: { gridcolor: '#242938', zerolinecolor: '#242938', title: { text: 'X', font: { size: 10 } } },
+      yaxis: { gridcolor: '#242938', zerolinecolor: '#242938', title: { text: 'Y', font: { size: 10 } } },
+      zaxis: { gridcolor: '#242938', zerolinecolor: '#242938', title: { text: 'Z', font: { size: 10 } } },
       camera: { eye: { x: 1.8, y: -1.8, z: 1 } },
       bgcolor: 'rgba(0,0,0,0)',
     },
@@ -199,10 +199,10 @@ export function renderBubbleChart(el: HTMLElement) {
         size: d.sizes,
         color: d.colors,
         colorscale: [
-          [0, '#3b82f6'],
-          [0.33, '#06b6d4'],
+          [0, '#5eead4'],
+          [0.33, '#38bdf8'],
           [0.66, '#8b5cf6'],
-          [1, '#f472b6'],
+          [1, '#fb7185'],
         ],
         opacity: 0.75,
         line: { color: 'rgba(255,255,255,0.15)', width: 1 },
@@ -213,12 +213,12 @@ export function renderBubbleChart(el: HTMLElement) {
   ]
 
   const layout = baseLayout({
-    xaxis: { gridcolor: '#232938', zerolinecolor: '#232938', title: '维度 A' },
-    yaxis: { gridcolor: '#232938', zerolinecolor: '#232938', title: '维度 B' },
+    xaxis: { gridcolor: '#242938', zerolinecolor: '#242938', title: '维度 A' },
+    yaxis: { gridcolor: '#242938', zerolinecolor: '#242938', title: '维度 B' },
     hoverlabel: {
-      bgcolor: '#141823',
-      bordercolor: '#2d3548',
-      font: { color: '#e8ecf4', family: 'DM Sans' },
+      bgcolor: '#12151e',
+      bordercolor: '#323847',
+      font: { color: '#e0e3e9', family: 'DM Sans' },
     },
   })
 
@@ -271,8 +271,8 @@ export function renderCandlestick(el: HTMLElement) {
       high,
       low,
       close,
-      increasing: { line: { color: '#22d3ee', width: 2 }, fillcolor: 'rgba(34, 211, 238, 0.3)' },
-      decreasing: { line: { color: '#f472b6', width: 2 }, fillcolor: 'rgba(244, 114, 182, 0.3)' },
+      increasing: { line: { color: '#86efac', width: 2 }, fillcolor: 'rgba(94, 234, 212, 0.3)' },
+      decreasing: { line: { color: '#fb7185', width: 2 }, fillcolor: 'rgba(251, 113, 133, 0.3)' },
       whiskerwidth: 0.5,
     },
     {
@@ -291,16 +291,16 @@ export function renderCandlestick(el: HTMLElement) {
 
   const layout = baseLayout({
     xaxis: {
-      gridcolor: '#232938',
+      gridcolor: '#242938',
       rangeslider: { visible: false },
       tickfont: { size: 10 },
     },
-    yaxis: { gridcolor: '#232938', title: '价格 ($)', tickfont: { size: 10 } },
+    yaxis: { gridcolor: '#242938', title: '价格 ($)', tickfont: { size: 10 } },
     showlegend: false,
     hoverlabel: {
-      bgcolor: '#141823',
-      bordercolor: '#2d3548',
-      font: { color: '#e8ecf4', family: 'DM Sans' },
+      bgcolor: '#12151e',
+      bordercolor: '#323847',
+      font: { color: '#e0e3e9', family: 'DM Sans' },
     },
   })
 
@@ -332,17 +332,17 @@ export function renderChoropleth(el: HTMLElement) {
       z: values,
       text: labels,
       colorscale: [
-        [0, '#0f1219'],
-        [0.2, '#1e3a5f'],
-        [0.4, '#3b82f6'],
-        [0.6, '#06b6d4'],
-        [0.8, '#22d3ee'],
-        [1, '#f472b6'],
+        [0, '#12151e'],
+        [0.2, '#1a3340'],
+        [0.4, '#5eead4'],
+        [0.6, '#38bdf8'],
+        [0.8, '#86efac'],
+        [1, '#fb7185'],
       ],
       colorbar: {
         thickness: 10,
         len: 0.6,
-        tickfont: { color: '#5c6378', size: 10 },
+        tickfont: { color: '#4c515c', size: 10 },
         outlinewidth: 0,
       },
       hovertemplate: '<b>%{text}</b><br>指数: %{z:.1f}<extra></extra>',
@@ -353,22 +353,22 @@ export function renderChoropleth(el: HTMLElement) {
     geo: {
       showframe: false,
       showcoastlines: true,
-      coastlinecolor: '#2d3548',
+      coastlinecolor: '#323847',
       showland: true,
-      landcolor: '#141823',
+      landcolor: '#12151e',
       showocean: true,
-      oceancolor: '#0a0c12',
+      oceancolor: '#0a0c10',
       showlakes: false,
       showcountries: true,
-      countrycolor: '#232938',
+      countrycolor: '#242938',
       projection: { type: 'natural earth' },
       bgcolor: 'rgba(0,0,0,0)',
     },
     margin: { l: 0, r: 0, t: 0, b: 0 },
     hoverlabel: {
-      bgcolor: '#141823',
-      bordercolor: '#2d3548',
-      font: { color: '#e8ecf4', family: 'DM Sans' },
+      bgcolor: '#12151e',
+      bordercolor: '#323847',
+      font: { color: '#e0e3e9', family: 'DM Sans' },
     },
   })
 
@@ -396,7 +396,7 @@ export function renderViolin(el: HTMLElement) {
       line: { color: COLORS[i], width: 2 },
       fillcolor: COLORS[i] + '20',
       opacity: 0.8,
-      meanline: { visible: true, color: '#e8ecf4', width: 1.5 },
+      meanline: { visible: true, color: '#e0e3e9', width: 1.5 },
       points: ' outliers',
       pointpos: 0,
       jitter: 0.05,
@@ -405,13 +405,13 @@ export function renderViolin(el: HTMLElement) {
   })
 
   const layout = baseLayout({
-    xaxis: { gridcolor: '#232938', zerolinecolor: '#232938' },
-    yaxis: { gridcolor: '#232938', zerolinecolor: '#232938', title: '测量值' },
+    xaxis: { gridcolor: '#242938', zerolinecolor: '#242938' },
+    yaxis: { gridcolor: '#242938', zerolinecolor: '#242938', title: '测量值' },
     violinmode: 'group',
     hoverlabel: {
-      bgcolor: '#141823',
-      bordercolor: '#2d3548',
-      font: { color: '#e8ecf4', family: 'DM Sans' },
+      bgcolor: '#12151e',
+      bordercolor: '#323847',
+      font: { color: '#e0e3e9', family: 'DM Sans' },
     },
   })
 
@@ -447,17 +447,17 @@ export function renderHeatmap(el: HTMLElement) {
       x,
       y,
       colorscale: [
-        [0, '#0f1219'],
-        [0.2, '#1e3a5f'],
-        [0.4, '#3b82f6'],
-        [0.6, '#06b6d4'],
-        [0.8, '#22d3ee'],
-        [1, '#f472b6'],
+        [0, '#12151e'],
+        [0.2, '#1a3340'],
+        [0.4, '#5eead4'],
+        [0.6, '#38bdf8'],
+        [0.8, '#86efac'],
+        [1, '#fb7185'],
       ],
       colorbar: {
         thickness: 10,
         len: 0.7,
-        tickfont: { color: '#5c6378', size: 10 },
+        tickfont: { color: '#4c515c', size: 10 },
         outlinewidth: 0,
       },
       hovertemplate: 'X: %{x}<br>Y: %{y}<br>值: %{z:.2f}<extra></extra>',
@@ -465,13 +465,13 @@ export function renderHeatmap(el: HTMLElement) {
   ]
 
   const layout = baseLayout({
-    xaxis: { gridcolor: '#232938', showticklabels: false },
-    yaxis: { gridcolor: '#232938', showticklabels: false },
+    xaxis: { gridcolor: '#242938', showticklabels: false },
+    yaxis: { gridcolor: '#242938', showticklabels: false },
     margin: { l: 40, r: 20, t: 10, b: 30 },
     hoverlabel: {
-      bgcolor: '#141823',
-      bordercolor: '#2d3548',
-      font: { color: '#e8ecf4', family: 'DM Sans' },
+      bgcolor: '#12151e',
+      bordercolor: '#323847',
+      font: { color: '#e0e3e9', family: 'DM Sans' },
     },
   })
 
@@ -503,14 +503,14 @@ export function renderTreemap(el: HTMLElement) {
       textfont: { color: 'white', family: 'DM Sans', size: 13 },
       marker: {
         colorscale: [
-          [0, '#1a1f2e'],
-          [0.2, '#1e3a5f'],
-          [0.4, '#3b82f6'],
-          [0.6, '#06b6d4'],
-          [0.8, '#22d3ee'],
-          [1, '#f472b6'],
+          [0, '#181c27'],
+          [0.2, '#1a3340'],
+          [0.4, '#5eead4'],
+          [0.6, '#38bdf8'],
+          [0.8, '#86efac'],
+          [1, '#fb7185'],
         ],
-        line: { width: 2, color: '#0a0c12' },
+        line: { width: 2, color: '#0a0c10' },
       },
       branchvalues: 'total',
       hovertemplate: '<b>%{label}</b><br>子项: %{value}<extra></extra>',
@@ -520,9 +520,9 @@ export function renderTreemap(el: HTMLElement) {
   const layout = baseLayout({
     margin: { l: 0, r: 0, t: 0, b: 0 },
     hoverlabel: {
-      bgcolor: '#141823',
-      bordercolor: '#2d3548',
-      font: { color: '#e8ecf4', family: 'DM Sans' },
+      bgcolor: '#12151e',
+      bordercolor: '#323847',
+      font: { color: '#e0e3e9', family: 'DM Sans' },
     },
   })
 
@@ -539,39 +539,39 @@ export function renderSankey(el: HTMLElement) {
       node: {
         pad: 16,
         thickness: 22,
-        line: { color: '#0a0c12', width: 1 },
+        line: { color: '#0a0c10', width: 1 },
         label: ['用户访问', '首页', '文档页', '图表展示', '安装指南',
           '注册用户', '匿名浏览', '代码复制', '直接离开'],
-        color: ['#3b82f6', '#06b6d4', '#8b5cf6', '#22d3ee', '#fbbf24',
-          '#34d399', '#5c6378', '#f472b6', '#f87171'],
+        color: ['#5eead4', '#38bdf8', '#8b5cf6', '#86efac', '#fbbf24',
+          '#86efac', '#4c515c', '#fb7185', '#fb7185'],
       },
       link: {
         source: [0, 0, 1, 1, 2, 2, 3, 4, 6, 6],
         target: [1, 2, 3, 4, 5, 7, 5, 7, 8, 5],
         value: [80, 60, 50, 30, 35, 25, 30, 20, 40, 15],
         color: [
-          'rgba(59, 130, 246, 0.2)',
-          'rgba(139, 92, 246, 0.2)',
-          'rgba(6, 182, 212, 0.2)',
-          'rgba(34, 211, 238, 0.2)',
-          'rgba(139, 92, 246, 0.2)',
-          'rgba(244, 114, 182, 0.2)',
-          'rgba(34, 211, 238, 0.2)',
+          'rgba(94, 234, 212, 0.2)',
+          'rgba(167, 139, 250, 0.2)',
+          'rgba(56, 189, 248, 0.2)',
+          'rgba(94, 234, 212, 0.2)',
+          'rgba(167, 139, 250, 0.2)',
+          'rgba(251, 113, 133, 0.2)',
+          'rgba(94, 234, 212, 0.2)',
           'rgba(251, 191, 36, 0.2)',
-          'rgba(92, 99, 120, 0.2)',
-          'rgba(52, 211, 153, 0.2)',
+          'rgba(76, 81, 92, 0.2)',
+          'rgba(134, 239, 172, 0.2)',
         ],
       },
     },
   ]
 
   const layout = baseLayout({
-    font: { color: '#8b92a5', family: 'DM Sans', size: 12 },
+    font: { color: '#797d89', family: 'DM Sans', size: 12 },
     margin: { l: 10, r: 10, t: 10, b: 10 },
     hoverlabel: {
-      bgcolor: '#141823',
-      bordercolor: '#2d3548',
-      font: { color: '#e8ecf4', family: 'DM Sans' },
+      bgcolor: '#12151e',
+      bordercolor: '#323847',
+      font: { color: '#e0e3e9', family: 'DM Sans' },
     },
   })
 
@@ -600,12 +600,12 @@ export function renderContour(el: HTMLElement) {
       type: 'contour',
       z,
       colorscale: [
-        [0, '#0f1219'],
-        [0.2, '#1e3a5f'],
-        [0.4, '#3b82f6'],
-        [0.6, '#06b6d4'],
-        [0.8, '#22d3ee'],
-        [1, '#f472b6'],
+        [0, '#12151e'],
+        [0.2, '#1a3340'],
+        [0.4, '#5eead4'],
+        [0.6, '#38bdf8'],
+        [0.8, '#86efac'],
+        [1, '#fb7185'],
       ],
       contours: {
         coloring: 'heatmap',
@@ -615,7 +615,7 @@ export function renderContour(el: HTMLElement) {
       colorbar: {
         thickness: 10,
         len: 0.7,
-        tickfont: { color: '#5c6378', size: 10 },
+        tickfont: { color: '#4c515c', size: 10 },
         outlinewidth: 0,
       },
       hovertemplate: '值: %{z:.2f}<extra></extra>',
@@ -623,13 +623,13 @@ export function renderContour(el: HTMLElement) {
   ]
 
   const layout = baseLayout({
-    xaxis: { showticklabels: false, gridcolor: '#232938' },
-    yaxis: { showticklabels: false, gridcolor: '#232938' },
+    xaxis: { showticklabels: false, gridcolor: '#242938' },
+    yaxis: { showticklabels: false, gridcolor: '#242938' },
     margin: { l: 40, r: 20, t: 10, b: 30 },
     hoverlabel: {
-      bgcolor: '#141823',
-      bordercolor: '#2d3548',
-      font: { color: '#e8ecf4', family: 'DM Sans' },
+      bgcolor: '#12151e',
+      bordercolor: '#323847',
+      font: { color: '#e0e3e9', family: 'DM Sans' },
     },
   })
 
@@ -647,8 +647,8 @@ export function renderPolar(el: HTMLElement) {
       r: [90, 85, 75, 80, 88, 95, 82, 78],
       theta: categories,
       fill: 'toself',
-      fillcolor: 'rgba(59, 130, 246, 0.15)',
-      line: { color: '#3b82f6', width: 2 },
+      fillcolor: 'rgba(94, 234, 212, 0.15)',
+      line: { color: '#5eead4', width: 2 },
       name: 'Plotly.js',
     },
     {
@@ -656,8 +656,8 @@ export function renderPolar(el: HTMLElement) {
       r: [70, 60, 85, 75, 65, 40, 50, 55],
       theta: categories,
       fill: 'toself',
-      fillcolor: 'rgba(244, 114, 182, 0.1)',
-      line: { color: '#f472b6', width: 2, dash: 'dot' },
+      fillcolor: 'rgba(251, 113, 133, 0.1)',
+      line: { color: '#fb7185', width: 2, dash: 'dot' },
       name: '其他库',
     },
   ]
@@ -665,11 +665,11 @@ export function renderPolar(el: HTMLElement) {
   const layout = baseLayout({
     polar: {
       bgcolor: 'rgba(0,0,0,0)',
-      radialaxis: { visible: true, range: [0, 100], gridcolor: '#232938', tickfont: { color: '#5c6378', size: 9 } },
-      angularaxis: { gridcolor: '#232938', tickfont: { color: '#8b92a5', size: 11 } },
+      radialaxis: { visible: true, range: [0, 100], gridcolor: '#242938', tickfont: { color: '#4c515c', size: 9 } },
+      angularaxis: { gridcolor: '#242938', tickfont: { color: '#797d89', size: 11 } },
     },
     showlegend: true,
-    legend: { x: 0.7, y: 1.15, font: { color: '#8b92a5', size: 12 } },
+    legend: { x: 0.7, y: 1.15, font: { color: '#797d89', size: 12 } },
     margin: { l: 40, r: 40, t: 40, b: 40 },
   })
 
@@ -706,11 +706,11 @@ export function renderScatter3D(el: HTMLElement) {
         size: 5,
         color: colors,
         colorscale: [
-          [0, '#3b82f6'],
-          [0.25, '#06b6d4'],
-          [0.5, '#22d3ee'],
+          [0, '#5eead4'],
+          [0.25, '#38bdf8'],
+          [0.5, '#86efac'],
           [0.75, '#8b5cf6'],
-          [1, '#f472b6'],
+          [1, '#fb7185'],
         ],
         opacity: 0.8,
         line: { color: 'rgba(255,255,255,0.2)', width: 0.5 },
@@ -721,17 +721,17 @@ export function renderScatter3D(el: HTMLElement) {
 
   const layout = baseLayout({
     scene: {
-      xaxis: { showgrid: true, gridcolor: '#1a1f2e', showbackground: false, showticklabels: false, title: '' },
-      yaxis: { showgrid: true, gridcolor: '#1a1f2e', showbackground: false, showticklabels: false, title: '' },
-      zaxis: { showgrid: true, gridcolor: '#1a1f2e', showbackground: false, showticklabels: false, title: '' },
+      xaxis: { showgrid: true, gridcolor: '#181c27', showbackground: false, showticklabels: false, title: '' },
+      yaxis: { showgrid: true, gridcolor: '#181c27', showbackground: false, showticklabels: false, title: '' },
+      zaxis: { showgrid: true, gridcolor: '#181c27', showbackground: false, showticklabels: false, title: '' },
       camera: { eye: { x: 1.5, y: -1.5, z: 1 } },
       bgcolor: 'rgba(0,0,0,0)',
     },
     margin: { l: 0, r: 0, t: 0, b: 0 },
     hoverlabel: {
-      bgcolor: '#141823',
-      bordercolor: '#2d3548',
-      font: { color: '#e8ecf4', family: 'DM Sans' },
+      bgcolor: '#12151e',
+      bordercolor: '#323847',
+      font: { color: '#e0e3e9', family: 'DM Sans' },
     },
   })
 
@@ -745,10 +745,10 @@ export function renderAnimatedLines(el: HTMLElement) {
   const N = 60
   const x = Array.from({ length: N }, (_, i) => i)
   const series = [
-    { name: '系列 A', color: '#3b82f6', offset: 0, amp: 20, freq: 0.15 },
-    { name: '系列 B', color: '#06b6d4', offset: 2, amp: 15, freq: 0.2 },
+    { name: '系列 A', color: '#5eead4', offset: 0, amp: 20, freq: 0.15 },
+    { name: '系列 B', color: '#38bdf8', offset: 2, amp: 15, freq: 0.2 },
     { name: '系列 C', color: '#8b5cf6', offset: 4, amp: 25, freq: 0.1 },
-    { name: '系列 D', color: '#f472b6', offset: 6, amp: 18, freq: 0.25 },
+    { name: '系列 D', color: '#fb7185', offset: 6, amp: 18, freq: 0.25 },
   ]
 
   function genY(s: typeof series[0], phase: number) {
@@ -766,14 +766,14 @@ export function renderAnimatedLines(el: HTMLElement) {
   }))
 
   const layout = baseLayout({
-    xaxis: { gridcolor: '#232938', zerolinecolor: '#232938', title: '时间' },
-    yaxis: { gridcolor: '#232938', zerolinecolor: '#232938', title: '数值' },
+    xaxis: { gridcolor: '#242938', zerolinecolor: '#242938', title: '时间' },
+    yaxis: { gridcolor: '#242938', zerolinecolor: '#242938', title: '数值' },
     showlegend: true,
-    legend: { x: 0.02, y: 0.98, font: { color: '#8b92a5', size: 11 }, bgcolor: 'rgba(20, 24, 35, 0.8)' },
+    legend: { x: 0.02, y: 0.98, font: { color: '#797d89', size: 11 }, bgcolor: 'rgba(18, 28, 39, 0.8)' },
     hoverlabel: {
-      bgcolor: '#141823',
-      bordercolor: '#2d3548',
-      font: { color: '#e8ecf4', family: 'DM Sans' },
+      bgcolor: '#12151e',
+      bordercolor: '#323847',
+      font: { color: '#e0e3e9', family: 'DM Sans' },
     },
   })
 
@@ -812,14 +812,14 @@ export function renderSunburst(el: HTMLElement) {
       textfont: { color: 'white', family: 'DM Sans', size: 12 },
       marker: {
         colorscale: [
-          [0, '#1a1f2e'],
-          [0.2, '#1e3a5f'],
-          [0.4, '#3b82f6'],
-          [0.6, '#06b6d4'],
-          [0.8, '#22d3ee'],
-          [1, '#f472b6'],
+          [0, '#181c27'],
+          [0.2, '#1a3340'],
+          [0.4, '#5eead4'],
+          [0.6, '#38bdf8'],
+          [0.8, '#86efac'],
+          [1, '#fb7185'],
         ],
-        line: { width: 2, color: '#0a0c12' },
+        line: { width: 2, color: '#0a0c10' },
       },
       branchvalues: 'total',
       hovertemplate: '<b>%{label}</b><br>子项: %{value}<extra></extra>',
@@ -829,9 +829,9 @@ export function renderSunburst(el: HTMLElement) {
   const layout = baseLayout({
     margin: { l: 0, r: 0, t: 0, b: 0 },
     hoverlabel: {
-      bgcolor: '#141823',
-      bordercolor: '#2d3548',
-      font: { color: '#e8ecf4', family: 'DM Sans' },
+      bgcolor: '#12151e',
+      bordercolor: '#323847',
+      font: { color: '#e0e3e9', family: 'DM Sans' },
     },
   })
 
@@ -850,23 +850,23 @@ export function renderWaterfall(el: HTMLElement) {
       x: ['初始营收', '产品 A', '产品 B', '订阅服务', '广告收入', '运营成本', '税费', '净利润'],
       y: [1000, 320, 280, 150, 120, -400, -180, 0],
       connector: {
-        line: { color: '#2d3548', width: 1 },
+        line: { color: '#323847', width: 1 },
       },
-      increasing: { marker: { color: '#22d3ee' } },
-      decreasing: { marker: { color: '#f472b6' } },
-      totals: { marker: { color: '#3b82f6' } },
+      increasing: { marker: { color: '#86efac' } },
+      decreasing: { marker: { color: '#fb7185' } },
+      totals: { marker: { color: '#5eead4' } },
       hovertemplate: '<b>%{x}</b><br>金额: %{y} 万元<extra></extra>',
     },
   ]
 
   const layout = baseLayout({
-    xaxis: { gridcolor: '#232938', zerolinecolor: '#232938', tickfont: { size: 11 } },
-    yaxis: { gridcolor: '#232938', zerolinecolor: '#232938', title: '金额 (万元)', tickfont: { size: 10 } },
+    xaxis: { gridcolor: '#242938', zerolinecolor: '#242938', tickfont: { size: 11 } },
+    yaxis: { gridcolor: '#242938', zerolinecolor: '#242938', title: '金额 (万元)', tickfont: { size: 10 } },
     margin: { l: 50, r: 20, t: 10, b: 40 },
     hoverlabel: {
-      bgcolor: '#141823',
-      bordercolor: '#2d3548',
-      font: { color: '#e8ecf4', family: 'DM Sans' },
+      bgcolor: '#12151e',
+      bordercolor: '#323847',
+      font: { color: '#e0e3e9', family: 'DM Sans' },
     },
   })
 
@@ -892,18 +892,18 @@ export function renderDensityContour(el: HTMLElement) {
       x,
       y,
       colorscale: [
-        [0, '#0f1219'],
-        [0.2, '#1e3a5f'],
-        [0.4, '#3b82f6'],
-        [0.6, '#06b6d4'],
-        [0.8, '#22d3ee'],
-        [1, '#f472b6'],
+        [0, '#12151e'],
+        [0.2, '#1a3340'],
+        [0.4, '#5eead4'],
+        [0.6, '#38bdf8'],
+        [0.8, '#86efac'],
+        [1, '#fb7185'],
       ],
       contours: { showlines: false },
       colorbar: {
         thickness: 10,
         len: 0.7,
-        tickfont: { color: '#5c6378', size: 10 },
+        tickfont: { color: '#4c515c', size: 10 },
         outlinewidth: 0,
       },
       hovertemplate: 'X: %{x:.1f}<br>Y: %{y:.1f}<br>密度: %{z}<extra></extra>',
@@ -913,19 +913,19 @@ export function renderDensityContour(el: HTMLElement) {
       mode: 'markers',
       x,
       y,
-      marker: { size: 3, color: 'rgba(232, 236, 244, 0.3)' },
+      marker: { size: 3, color: 'rgba(224, 227, 233, 0.3)' },
       hoverinfo: 'skip',
     },
   ]
 
   const layout = baseLayout({
-    xaxis: { gridcolor: '#232938', zerolinecolor: '#232938', title: '变量 X' },
-    yaxis: { gridcolor: '#232938', zerolinecolor: '#232938', title: '变量 Y' },
+    xaxis: { gridcolor: '#242938', zerolinecolor: '#242938', title: '变量 X' },
+    yaxis: { gridcolor: '#242938', zerolinecolor: '#242938', title: '变量 Y' },
     margin: { l: 50, r: 20, t: 10, b: 40 },
     hoverlabel: {
-      bgcolor: '#141823',
-      bordercolor: '#2d3548',
-      font: { color: '#e8ecf4', family: 'DM Sans' },
+      bgcolor: '#12151e',
+      bordercolor: '#323847',
+      font: { color: '#e0e3e9', family: 'DM Sans' },
     },
   })
 

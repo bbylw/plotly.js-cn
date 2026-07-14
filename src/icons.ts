@@ -8,9 +8,9 @@ export function logoMark(size = 32): string {
   return `<svg width="${size}" height="${size}" viewBox="0 0 64 64" fill="none">
     <defs>
       <linearGradient id="logo-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-        <stop offset="0" stop-color="#3b82f6"/>
-        <stop offset="0.5" stop-color="#06b6d4"/>
-        <stop offset="1" stop-color="#8b5cf6"/>
+        <stop offset="0" stop-color="#5eead4"/>
+        <stop offset="0.5" stop-color="#38bdf8"/>
+        <stop offset="1" stop-color="#a78bfa"/>
       </linearGradient>
       <linearGradient id="logo-bar" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
